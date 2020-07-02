@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
     if(message.content === '!도움말') {
-    message.reply('1. `!길드 마스터,  2. !서브 마스터  [관리자전용]. !전체공지`');
+    message.reply('```1. !길드 마스터,  2. !서브 마스터  [관리자전용]. !전체공지```');
       }
     });
 
