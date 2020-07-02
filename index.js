@@ -4,7 +4,7 @@ const token = process.argv.length == 2 ? process.env.token : "";
 
 client.on('ready', () => {
   console.log('봇 온라인..');
-  client.user.setPresence({ game: { name: '!도움말을 쳐주세요.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '!help 쳐주세요.' }, status: 'online' })
 });
 
 client.on('message', (message) => {
@@ -19,10 +19,10 @@ client.on('message', (message) => {
   }
 
     message.channel.send(embed)
-  } else if(message.content == '!도움말') {
+  } else if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!도움말', desc: '도움말'},
+      {name: '!help', desc: '도움말'},
       {name: 'ping', desc: '현재 핑 상태'},
       {name: 'embed', desc: 'embed 예제1'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
