@@ -7,6 +7,7 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '!도움말을 쳐주세요!' }, status: 'online' })
 });
 
+client.on('message', (message) => {
     message.channel.send(embed)
   } else if(message.content == '!도움말') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
