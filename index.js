@@ -1,22 +1,57 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
+const welcomeChannelName = "안녕하세요";
+const byeChannelName = "안녕히가세요";
+const welcomeChannelComment = "어서오세요.";
+const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
-  console.log('봇 온라인..');
-  client.user.setPresence({ game: { name: '!도움말을 쳐주세요.' }, status: 'online' })
+  console.log('켰다.');
+  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
+});
+
+client.on("guildMemberAdd", (member) => {
+  const guild = member.guild;
+  const newUser = member.user;
+  const welcomeChannel = guild.channels.find(channel => channel.name == welcomeChannelName);
+
+  welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
+
+  member.addRole(guild.roles.find(role => role.name == "게스트"));
+});
+
+client.on("guildMemberRemove", (member) => {
+  const guild = member.guild;
+  const deleteUser = member.user;
+  const byeChannel = guild.channels.find(channel => channel.name == byeChannelName);
+
+  byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 });
 
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == '!길드 마스터') {
-    return message.reply('T빈이');
+  if(message.content == 'ping') {
+    return message.reply('pong');
   }
-  
-  if(message.content == '!길드 서브 마스터') {
-    return message.reply('현아J, l율윤l');
-  }
+
+  if(message.content == 'embed') {
+    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let embed = new Discord.RichEmbed()
+      .setTitle('타이틀')
+      .setURL('http://www.naver.com')
+      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setThumbnail(img)
+      .addBlankField()
+      .addField('Inline field title', 'Some value here')
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here', true)
+      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addBlankField()
+      .setTimestamp()
+      .setFooter('나긋해가 만듬', img)
 
     message.channel.send(embed)
   } else if(message.content == '!help') {
