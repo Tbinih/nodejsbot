@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
     message.channel.send(embed)
-  } else if(message.content == '!도움말') {
+    if(message.content == '!도움말') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: '!길드 마스터', desc: '현재 길드 마스터'},
