@@ -8,9 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('message', (message) => {
-    message.channel.send(embed)
-    if(message.content == '!도움말') {
-    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
+    if(message.content === '!도움말') {
     message.reply('!길드 마스터  !서브 마스터 !전체공지');
       }
     });
