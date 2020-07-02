@@ -136,5 +136,4 @@ function checkPermission(message) {
   }
 }
 
-
 client.login(token);
