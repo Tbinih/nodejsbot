@@ -2,6 +2,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.token;
 
+access_token = os.environ["BOT_TOKEN"]			
+git_access_token = os.environ["GIT_TOKEN"]			
+git_access_repo = os.environ["GIT_REPO"]			
+git_access_repo_restart = os.environ["GIT_REPO_RESTART"]	
+
 client.on('ready', () => {
   console.log('봇 온라인.');
   client.user.setPresence({ game: { name: '!도움말을 쳐주세요!' }, status: 'online' })
