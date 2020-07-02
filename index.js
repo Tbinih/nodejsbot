@@ -15,6 +15,7 @@ client.on('ready', () => {
       {name: '!길드 서브 마스터', desc: '현제 길드 서브 마스터'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기[관리자 전용]'},
     ];
+    });
 
 client.on('message', (message) => {
   if(message.content === '!길드 마스터') {
