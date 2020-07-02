@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = 'NzI1MTY4MDI4OTUzODcwMzQ2.Xv1Hlg.hSAZT1Pwsb8g9u-gzYjY2FzaBuI';
+const token = 'NzI1MTY4MDI4OTUzODcwMzQ2.Xv1W9Q.BsX230-SuREvAUs8Mo8s_uHohxM';
 
 client.on('ready', () => {
   console.log('봇 온라인.');
