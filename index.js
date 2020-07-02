@@ -27,9 +27,9 @@ client.on('message', (message) => {
 
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 백윤 길드 봇', helpImg)
+      .setAuthor('Help of 백윤길드 BOT', helpImg)
       .setColor('#186de6')
-      .setFooter(`백윤 길드 봇`)
+      .setFooter(`백윤길드 BOT`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -38,14 +38,28 @@ client.on('message', (message) => {
 
     embed.addField('Commands: ', commandStr);
 
-  } else if(message.content.startsWith('!전체공지')) {
+    message.channel.send(embed)
+  } else if(message.content == '!초대코드2') {
+    client.guilds.array().forEach(x => {
+      x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
+        .then(invite => {
+          message.channel.send(invite.url)
+        })
+        .catch((err) => {
+          if(err.code == 50013) {
+            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
+          }
+        })
+    });
+
+  } else if(message.content.startsWith('!전체공지2')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
-      let contents = message.content.slice('!전체공지'.length);
+      let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 백윤 길드 봇')
+        .setAuthor('공지 of 백윤길드 BOT')
         .setColor('#186de6')
-        .setFooter(`백윤 길드 봇`)
+        .setFooter(`백윤길드 BOT`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -59,6 +73,13 @@ client.on('message', (message) => {
     } else {
       return message.reply('채널에서 실행해주세요.');
     }
+  } else if(message.content.startsWith('!전체공지')) {
+    if(checkPermission(message)) return
+    if(message.member != null) { // 채널에서 공지 쓸 때
+      let contents = message.content.slice('!전체공지'.length);
+      message.member.guild.members.array().forEach(x => {
+        if(x.user.bot) return;
+        x.user.send(`<@${message.author.id}> ${contents}`);
       });
   
       return message.reply('공지를 전송했습니다.');
@@ -78,7 +99,7 @@ client.on('message', (message) => {
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
       return;
-    } else if(!isNum) { // c @나긋해 3
+    } else if(!isNum) { // c @티빈이 3
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
@@ -136,4 +157,3 @@ async function AutoMsgDelete(message, str, delay = 3000) {
 
 
 client.login(token);
-
