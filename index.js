@@ -20,7 +20,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
-    if(message.content === '!길드 서브 마스터') {
+    if(message.content === '!서브 마스터') {
       message.reply('현아J, l율윤l');
     }
   });
