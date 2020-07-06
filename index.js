@@ -15,13 +15,13 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
   if(message.content === '!길드 마스터') {
-    message.reply('T빈이');
+    message.reply('붉은빈이');
   }
 });
 
 client.on('message', (message) => {
     if(message.content === '!서브 마스터') {
-      message.reply('현아J, l율윤l');
+      message.reply('붉은세현, 현아J');
     }
   });
 
