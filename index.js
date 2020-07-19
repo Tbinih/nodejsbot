@@ -6,7 +6,7 @@ require("moment-duration-format");
 
 client.on('ready', () => {
   console.log('봇 온라인.');
-  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '!도움말를 쳐주세요!' }, status: 'online' })
 });
 
 client.on('message', (message) => {
@@ -72,7 +72,7 @@ client.on('message', (message) => {
   } else if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!help', desc: 'help'},
+      {name: '!도움말', desc: '도움'},
       {name: '!길드 마스터', desc: '현제 길드 마스터'},
       {name: '!서브 마스터', desc: '현제 서브 마스터'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
