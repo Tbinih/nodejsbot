@@ -5,7 +5,7 @@ const moment = require("moment");
 require("moment-duration-format");
 
 client.on('ready', () => {
-  console.log('봇 .');
+  console.log('봇 온라인.');
   client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
 });
 
