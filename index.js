@@ -199,7 +199,7 @@ client.on('message', (message) => {
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("1부터 99ㄴ까지의 숫자만 입력해주세요.")
+      message.channel.send("1부터 99까지의 숫자만 입력해주세요.")
       return;
     } else if(!isNum) { // c @티빈이 3
       if(message.content.split('<@').length == 2) {
