@@ -12,12 +12,8 @@ client.on('ready', () => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == '!길드 마스터') {
-    return message.reply('붉은빈이');
-  }
-
-  if(message.content == '!서브 마스터') {
-    return message.reply('붉은세현, 현아J');
+  if(message.content == '!인사') {
+    return message.reply('안녕하세요!!');
   }
 
   if(message.content == '!si') {
@@ -94,6 +90,45 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
+  } else if(message.content == '!길드 마스터') {
+    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let commandList = [
+      {name: '길드 마스터', desc: '붉은빈이'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('백윤 길드', helpImg)
+      .setColor('#186de6')
+      .setFooter(`백윤 길드`)
+      .setTimestamp()
+  
+      commandList.forEach(x => {
+        commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+      });
+
+    embed.addField('백윤 길드 정보: ', commandStr);
+  
+    message.channel.send(embed)
+  } else if(message.content == '!서브 마스터') {
+    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let commandList = [
+      {name: '서브 마스터', desc: '붉은세현'},
+      {name: '서브 마스터', desc: '현아J'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('백윤 길드', helpImg)
+      .setColor('#186de6')
+      .setFooter(`백윤 길드`)
+      .setTimestamp()
+  
+      commandList.forEach(x => {
+        commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+      });
+
+    embed.addField('백윤 길드 정보: ', commandStr);
+
+    message.channel.send(embed)
   } else if(message.content == '!초대코드2') {
     client.guilds.array().forEach(x => {
       x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
@@ -164,7 +199,7 @@ client.on('message', (message) => {
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("1부터 99까지의 숫자만 입력해주세요.")
+      message.channel.send("1부터 99ㄴ까지의 숫자만 입력해주세요.")
       return;
     } else if(!isNum) { // c @티빈이 3
       if(message.content.split('<@').length == 2) {
