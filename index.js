@@ -112,8 +112,9 @@ client.on('message', (message) => {
   } else if(message.content == '!서브 마스터') {
     let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
     let commandList = [
-      {name: '서브 마스터', desc: '붉은세현'},
+      {name: '서브 마스터', desc: '연세빈'},
       {name: '서브 마스터', desc: '현아J'},
+      {name: '서브 마스터', desc: '당중니'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
