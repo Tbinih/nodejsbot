@@ -70,7 +70,6 @@ client.on('message', (message) => {
     let commandList = [
       {name: '!도움말', desc: '도움'},
       {name: '!길드 마스터', desc: '현제 길드 마스터'},
-      {name: '!서브 마스터', desc: '현제 서브 마스터'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
@@ -93,7 +92,7 @@ client.on('message', (message) => {
   } else if(message.content == '!길드 마스터') {
     let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
     let commandList = [
-      {name: '길드 마스터', desc: '붉은빈이'},
+      {name: '길드 마스터', desc: '당중'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -108,27 +107,6 @@ client.on('message', (message) => {
 
     embed.addField('백윤 길드 정보: ', commandStr);
   
-    message.channel.send(embed)
-  } else if(message.content == '!서브 마스터') {
-    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
-    let commandList = [
-      {name: '서브 마스터', desc: '연세빈'},
-      {name: '서브 마스터', desc: '현아J'},
-      {name: '서브 마스터', desc: '당중니'},
-    ];
-    let commandStr = '';
-    let embed = new Discord.RichEmbed()
-      .setAuthor('백윤 길드', helpImg)
-      .setColor('#186de6')
-      .setFooter(`백윤 길드`)
-      .setTimestamp()
-  
-      commandList.forEach(x => {
-        commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-      });
-
-    embed.addField('백윤 길드 정보: ', commandStr);
-
     message.channel.send(embed)
   } else if(message.content == '!초대코드2') {
     client.guilds.array().forEach(x => {
