@@ -21,8 +21,8 @@ client.on('message', (message) => {
     let img = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 백윤 길드', img)
-    embed.setFooter(`백윤 길드 봇`)
+    embed.setAuthor('server info of waxx 길드', img)
+    embed.setFooter(`waxx 길드 봇`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -52,7 +52,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setTitle('타이틀')
       .setURL('http://www.naver.com')
-      .setAuthor('백윤', img, 'http://www.naver.com')
+      .setAuthor('waxx', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
@@ -62,7 +62,7 @@ client.on('message', (message) => {
       .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
       .addBlankField()
       .setTimestamp()
-      .setFooter('백윤 길드', img)
+      .setFooter('waxx 길드', img)
 
     message.channel.send(embed)
   } else if(message.content == '!도움말') {
@@ -70,6 +70,7 @@ client.on('message', (message) => {
     let commandList = [
       {name: '!도움말', desc: '도움'},
       {name: '!길드 마스터', desc: '현제 길드 마스터'},
+      {name: '!서브 마스터', desc: '현제 서브 마스터'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
@@ -77,9 +78,9 @@ client.on('message', (message) => {
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('Help of 백윤 길드', helpImg)
+      .setAuthor('Help of waxx 길드', helpImg)
       .setColor('#186de6')
-      .setFooter(`백윤 길드`)
+      .setFooter(`waxx 길드`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -92,20 +93,42 @@ client.on('message', (message) => {
   } else if(message.content == '!길드 마스터') {
     let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
     let commandList = [
-      {name: '길드 마스터', desc: '당중니(바보다.)'},
+      {name: '길드 마스터', desc: '피뿌'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('백윤 길드', helpImg)
+      .setAuthor('waxx 길드', helpImg)
       .setColor('#186de6')
-      .setFooter(`백윤 길드`)
+      .setFooter(`waxx 길드`)
       .setTimestamp()
   
       commandList.forEach(x => {
         commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
       });
 
-    embed.addField('백윤 길드 정보: ', commandStr);
+    embed.addField('waxx 길드 정보: ', commandStr);
+  
+    embed.addField('Commands: ', commandStr);
+
+    message.channel.send(embed)
+  } else if(message.content == '!서브 마스터') {
+    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let commandList = [
+      {name: '서브 마스터', desc: '티빈이옛계정'},
+      {name: '서브 마스터', desc: '현아J'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('waxx 길드', helpImg)
+      .setColor('#186de6')
+      .setFooter(`waxx 길드`)
+      .setTimestamp()
+  
+      commandList.forEach(x => {
+        commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+      });
+
+    embed.addField('waxx 길드 정보: ', commandStr);
   
     message.channel.send(embed)
   } else if(message.content == '!초대코드2') {
@@ -138,9 +161,9 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 백윤 길드')
+        .setAuthor('공지 of waxx 길드')
         .setColor('#186de6')
-        .setFooter(`백윤 길드`)
+        .setFooter(`waxx 길드`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
