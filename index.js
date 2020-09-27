@@ -82,10 +82,6 @@ client.on('message', (message) => {
       .setColor('#186de6')
       .setFooter(`waxx 길드`)
       .setTimestamp()
-    
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
 
     embed.addField('Commands: ', commandStr);
 
