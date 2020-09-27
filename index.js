@@ -18,7 +18,7 @@ client.on('message', (message) => {
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let img = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
     embed.setAuthor('server info of waxx 길드', img)
@@ -48,7 +48,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'embed') {
-    let img = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let img = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     let embed = new Discord.RichEmbed()
       .setTitle('타이틀')
       .setURL('http://www.naver.com')
@@ -87,7 +87,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   } else if(message.content == '!길드 마스터') {
-    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     let commandList = [
       {name: '길드 마스터', desc: '피뿌'},
     ];
@@ -103,12 +103,10 @@ client.on('message', (message) => {
       });
 
     embed.addField('waxx 길드 정보: ', commandStr);
-  
-    embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
   } else if(message.content == '!서브 마스터') {
-    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/734312310541254787/1589030878864.png';
+    let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     let commandList = [
       {name: '서브 마스터', desc: '티빈이옛계정'},
       {name: '서브 마스터', desc: '현아J'},
