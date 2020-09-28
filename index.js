@@ -83,6 +83,10 @@ client.on('message', (message) => {
       .setFooter(`waxx 길드`)
       .setTimestamp()
 
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
