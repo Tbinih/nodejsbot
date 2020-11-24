@@ -93,7 +93,7 @@ client.on('message', (message) => {
   } else if(message.content == '!길드 마스터') {
     let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     let commandList = [
-      {name: '길드 마스터', desc: '피뿌'},
+      {name: '길드 마스터', desc: 'Koly'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -112,7 +112,7 @@ client.on('message', (message) => {
   } else if(message.content == '!서브 마스터') {
     let helpImg = 'https://cdn.discordapp.com/attachments/725881963092770916/759725020758671440/TalesRunner.png';
     let commandList = [
-      {name: '서브 마스터', desc: '티빈이옛계정'},
+      {name: '서브 마스터', desc: '티빈이'},
       {name: '서브 마스터', desc: '현아J'},
     ];
     let commandStr = '';
